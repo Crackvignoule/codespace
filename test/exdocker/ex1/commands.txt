@@ -1,1 +1,4 @@
+docker login --username kiki.kalagan@gmail.com
 docker build -t nettools:latest .
+docker tag nettools:latest kikikalagan352/nettools:latest
+docker push kikikalagan352/nettools:latest
