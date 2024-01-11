@@ -1,0 +1,10 @@
+docker build -t kikikalagan352/php:mysqli .
+docker login --username kikikalagan352
+docker push kikikalagan352/php:mysqli
+
+docker volume create blog_db_data
+docker volume create blog_web_data
+
+docker network create blog
+
+docker run -dit --name database --network blog -e MYSQL_ROOT_PASSWORD=p -e MYSQL_DATABASE=wordpress --mount src=blog_db_data,dst=/var/lib/mysql/ mariadb
