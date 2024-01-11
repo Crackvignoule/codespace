@@ -8,3 +8,4 @@ docker volume create blog_web_data
 docker network create blog
 
 docker run -dit --name database --network blog -e MYSQL_ROOT_PASSWORD=p -e MYSQL_DATABASE=wordpress --mount src=blog_db_data,dst=/var/lib/mysql/ mariadb
+docker run -dit --name web --network blog --mount src=blog_web_data,dst=/var/www/html -p 80:80 kikikalagan352/php:mysqli
